@@ -1,0 +1,27 @@
+{
+  "name": "tiny-app",
+  "version": "0.0.1",
+  "description": "URL shortener built for Lighthouse Labs Web Development Bootcamp",
+  "main": "tinyApp.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattdanielmurphy/Tiny-App.git"
+  },
+  "keywords": [
+    "url",
+    "shortener"
+  ],
+  "author": "Matthew Daniel Murphy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattdanielmurphy/Tiny-App/issues"
+  },
+  "homepage": "https://github.com/mattdanielmurphy/Tiny-App#readme"
+}
