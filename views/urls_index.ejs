@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include partials/_head %>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+<body>
+	<% include partials/_header %>
+
+	<main>
+		<table>
+			<thead>
+				<th colspan='2'>Original URL</th>
+				<th>Shortened URL</th>
+			</thead>
+			<tbody>
+				<% for(let i = 0; i < urls.length; i++) { %>
+						<tr>
+								<form method="POST" action='/urls/<%=shortURL[i]%>/delete'>
+							<td>
+									<%= urls[i] %>
+							</td>
+							<td>
+									<a href='/urls/<%=shortURL[i]%>'>Edit</a>
+									<button type="submit">Delete</button>
+							</td>
+								</form>
+							<td><%= shortURL[i] %></td>
+						</tr>
+					</form>
+				<% } %>
+			</tbody>
+		</table>
+		<p><a href="/urls/new">Shorten a new URL</a></p>
+	</main>
+</body>
+</html>
