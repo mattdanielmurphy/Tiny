@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
@@ -8,12 +9,23 @@ const urlDatabase = {
 };
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
 
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-	res.end("Hello!");
+	res.redirect('/urls')
 });
+
+app.post('/login', (req, res) => {
+	res.cookie('username', req.body.username);
+	res.redirect('/urls')
+});
+
+app.post('/logout', (req, res) => {
+	res.clearCookie('username');
+	res.redirect('/urls')
+})
 
 app.get('/urls', (req, res) => {
 	let urls = [];
@@ -23,7 +35,8 @@ app.get('/urls', (req, res) => {
 	}
 	let templateVars = {
 		urls: urls,
-		shortURL: shortURL
+		shortURL: shortURL,
+		username: req.cookies['username']
 	};
 	res.render("urls_index", templateVars);
 });
@@ -65,7 +78,6 @@ app.get('/u/:shortURL', (req, res) => {
 	let shortURL = req.params.shortURL;
 	res.redirect(urlDatabase[shortURL]);
 })
-
 
 app.listen(port, () => {
 	console.log(`App listening on port ${port}.\nhttp://localhost:${port}`)

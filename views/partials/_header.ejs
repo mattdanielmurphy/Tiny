@@ -1,4 +1,15 @@
-	<header>
-		<h1>TinyApp</h1>
-		<h2>The URL shortener Gotham deserves<br>(but not one it needs right now)</h2>
-	</header>
+<header>
+	<h1>TinyApp</h1>
+	<h2>The URL shortener Gotham deserves</h2>
+	<% if (username) { %>
+		<form method='POST' action='/logout'>
+			<p style='display: inline-block'>Currently logged in as <%=username%>.</p>
+			<button type="submit">Logout</button>
+		</form>
+	<% } else { %>
+		<form method='POST' action='/login'>
+			<label for="username">Login:</label>
+			<input type="text" name="username" placeholder='obama69'>
+		</form>
+	<% } %>
+</header>

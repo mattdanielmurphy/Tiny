@@ -2,7 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>TinyApp | URL Shortener</title>
-<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
 <link rel="stylesheet"  href="https://meyerweb.com/eric/tools/css/reset/reset.css">
 <style>
 	header {
@@ -16,6 +15,7 @@
 		vertical-align: middle;
 		border-bottom: 1px solid blue;
 		margin: 0 10px;
+		transition: .3s ease;
 	}
 	a:hover {
 		color: black;
@@ -44,9 +44,17 @@
 		text-align: left;
 		padding: 5px 10px;
 		border-bottom: 1px solid black;
+		color: black;
+	}
+	tr {
+		transition: .3s ease;
+	}
+	tr:hover {
+		color: #B12424;
 	}
 	td {
 		padding: 5px 10px;
+		vertical-align: middle;
 	}
 	h3 span {
 		font-weight: normal;
