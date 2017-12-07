@@ -70,7 +70,6 @@ app.post('/login', (req, res) => {
 			if (users[i].email === req.body.email) {
 				if (users[i].password === req.body.password) {
 					res.cookie('user_id', users[i].id);
-					console.log(users[i].id);
 					res.redirect('/urls');
 				}
 			}
@@ -85,7 +84,6 @@ app.post('/logout', (req, res) => {
 })
 
 app.get('/urls', (req, res) => {
-	console.log(users);
 	let urls = [];
 	let shortURL = Object.keys(urlDatabase);
 	for (let i in urlDatabase) {
