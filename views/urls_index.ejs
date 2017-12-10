@@ -1,31 +1,31 @@
 <% include partials/_head %>
 	<% include partials/_header %>
 
-	<main>
-		<table>
+	<main> 
+		<% if (user) { %>
+		<h2>Your URLs</h2>
+		<table cellspacing='10'>
 			<thead>
 				<th colspan='2'>Original URL</th>
 				<th>Shortened URL</th>
 			</thead>
 			<tbody>
-				<% for(let i = 0; i < urls.length; i++) { %>
-						<tr>
-								<form method="POST" action='/urls/<%=shortURL[i]%>/delete'>
-							<td>
-									<%= urls[i] %>
-							</td>
-							<td>
-									<a href='/urls/<%=shortURL[i]%>'>Edit</a>
-									<button type="submit">Delete</button>
-							</td>
-								</form>
-							<td><%= shortURL[i] %></td>
-						</tr>
-					</form>
+				<% for(let i in urls) { %>
+					<tr>
+						<td>
+							<a href="<%=urls[i]%>"><%=urls[i]%></a>
+						</td>
+						<td>
+							<form method='GET' action='/urls/<%=shortURLs[i]%>'><button type="submit" action='/urls/<%=shortURLs[i]%>'>Edit</button></form>
+							<form method="POST" action='/urls/<%=shortURLs[i]%>/delete'><button type="submit">Delete</button></form>
+						</td>
+						<td><a href="/u/<%=shortURLs[i]%>">localhost:8080/u/<%=shortURLs[i]%></a></td>
+					</tr>
 				<% } %>
 			</tbody>
 		</table>
-		<p><a href="/urls/new">Shorten a new URL</a></p>
+		<% } %>
+		<p id='addURL'><a href="/urls/new"><span>+ </span>Shorten a new URL</a></p>
 	</main>
 </body>
 </html>

@@ -1,9 +1,10 @@
 <% include partials/_head %>
 	<% include partials/_header %>
-	<h3>Edit URL <span>(<%=shortURL%>)</span></h3>
-	<form method="POST" action='/urls/<%=shortURL%>/edit'>
-		<input type="text" value='<%=longURL%>' name='newURL' style='width: 300px'>
+	<h3>Edit URL <span>(<%=shortURLs%>)</span></h3>
+	<form method="POST" action='/urls/<%=shortURLs%>/edit'>
+		<input type="text" value='<%=longURL%>' name='newURL' style='width: 300px' autofocus>
 		<button type="submit">Submit</button>
 	</form>
+	<a href="/urls">Cancel</a>
 </body>
 </html>

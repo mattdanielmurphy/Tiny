@@ -6,77 +6,112 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>TinyApp | URL Shortener</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<style>
-		header {
-			margin: 30px 0 20px 0;
+		div#name {
+			width: 50%;
 		}
-		a:visited {
-			color: blue;
+		div#userAccount {
+			padding: 20px;
+			background: #F3F2EF;
+			color: #F3F2EF;
+			text-align: right;
+			<%if (user) {%> background-color: #414174 <%}%>
+		}
+		div#userAccount a, div#userAccount a:visited {
+			color: #232529;
+			<%if (user) {%> background-color: #F3F2EF <%}%>
+		}
+		div#userAccount a:hover {
+			background: none;
+			color: #F34B56;
+			border: 2px solid #F34B56;
+		}
+		header {
+			grid-template-columns: 2;
+			margin-bottom: 40px;
 		}
 		a {
+			padding: 4px 4px 2px 4px;
+			margin: 0 2px;
 			text-decoration: none;
 			vertical-align: middle;
-			border-bottom: 1px solid blue;
-			margin: 0 10px;
+			color: #F3F2EF;		
 			transition: .3s ease;
+			border: 2px solid transparent;
+			border-bottom: 2px solid #F34B56;
+		}
+		a:visited {
+			color: #F3F2EF;
 		}
 		a:hover {
-			color: black;
+			background: #414174;
 		}
 		main {
-			max-width: 800px;
-			display: inline-block;
 			text-align: left;
+			min-width: 650px;
+			display: inline-block;
 		}
 		body {
 			text-align: center;
+			background: #232529;
+			color: #F3F2EF;
+			margin: 0;
 			font-family: 'Helvetica', sans-serif;
 		}
 		h1 {
-			display: inline-block;
-			color: #B12424;
-			margin: 0 10px 0 0;
-			font-size: 3.5em;
+			font-weight: bold;
+			text-align: left;
+			margin: 20px 0 20px 0;
+			font-size: 2.6em;
+			padding-left: 60px;
 		}
-		h2 {
-			display: inline-block;
-			margin: 0 0 20px 0;
+		h1 span {
+			font-weight:200;
+		}
+		h1 a, h1 a:visited {
+			color: #F3F2EF;
+			border: none;
+		}
+		h1 a:hover, h1 a:hover {
+			background: none;
+			color: #F34B56;
 		}
 		th {
 			font-weight: bold;
 			text-align: left;
-			padding: 5px 10px;
-			border-bottom: 1px solid black;
-			color: black;
-		}
-		tr {
-			transition: .3s ease;
-		}
-		tr:hover {
-			color: #B12424;
+			padding: 5px;
+			border-bottom: 1px solid #F3F2EF;
 		}
 		td {
 			padding: 5px 10px;
 			vertical-align: middle;
+		}
+		h2 {
+			text-align: left;
 		}
 		h3 span {
 			font-weight: normal;
 		}
 		p {
 			margin: 10px 0 0 0;
+			font-size: 1em;
+		}
+		form {
+			display: inline-block;
 		}
 		button {
-			margin: 0;
-			padding: 4px 7px 6px 7px;
-			background: black;
-			color: white;
-			font-size: .75em;
-			border: none;
+			margin-right: 5px;
+			padding: 6px 10px 8px 10px;
+			color: #F3F2EF;
+			background: none;
+			font-size: 1em;
+			border: 2px solid #F3F2EF;
 			transition: .3s ease;
 		}
 		button:hover {
-			background-color: blue;
-			color: white;
+			border: 2px solid #F34B56;
+			color: #F34B56;
 			cursor: pointer;
 		}
 		button:focus {
@@ -85,8 +120,20 @@
 		button:focus:hover {
 			transition: .3s ease;
 		}
-		form {
-			margin: 0 0 15px 0;
+		input {
+			padding: 6px 0px 7px 6px;	
+			background: #F3F2EF;
+			color: #414174;
+			font-size: 1em;
+		}
+		table {
+			padding: 30px;
+			border: 1px solid #F3F2EF;
+			margin-bottom: 20px;
+		}
+		#addURL span {
+			position: relative;
+			top: -1.5px;
 		}
 	</style>
 </head>

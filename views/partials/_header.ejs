@@ -1,15 +1,16 @@
 <header>
-	<h1>TinyApp</h1>
-	<h2>The URL shortener Gotham deserves</h2>
-	<p>
-<% if (user) { %>
-	<form method='POST' action='/logout'>
-		Logged in as <em><%=user.email%></em>
-		<button type="submit">Logout</button>
-	</form>
-<% } else { %>
-	<a href="/login">Login</a>
-<% } %>
-	<a href="/register">Create a new user account</a>
-	</p>
+	<div id='userAccount'>
+		<% if (user) { %>
+				Logged in as <em><%=user.email%></em>.
+			<form method='POST' action='/logout'>
+				<button type="submit">Logout</button>
+			</form>
+		<% } else { %>
+			<a href="/login">Login</a>
+			<a href="/register">Create a new account</a>
+		<% } %>
+	</div>
+	<div id="name">
+		<h1><a href="/urls">TinyApp: <span>URL shortener</span></a></h1>
+	</div>
 </header>

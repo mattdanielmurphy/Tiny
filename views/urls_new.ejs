@@ -1,9 +1,12 @@
 <% include partials/_head %>
 	<% include partials/_header %>
-	<form action='/urls' method='POST' style='margin:70px'>
-		<label for="longURL">Enter a URL:</label>
-		<input type="text" name="longURL" placeholder="http://" style='width: 300px' autofocus>
-		<input type="submit" value="Submit">
-	</form>
+	<main>
+		<h2>Create a new URL</h2>
+		<form action='/urls' method='POST'>
+			<input type="text" name="longURL" placeholder="http://example.com" style='width: 300px' autofocus>
+			<button type="submit">Submit</button>
+		</form>
+		<a href="/urls">Cancel</a>
+	</main>
 </body>
 </html>
