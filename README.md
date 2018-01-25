@@ -1,2 +1,2 @@
-# Tiny-App
-URL shortener built for Lighthouse Labs Web Development Bootcamp
+# Tiny
+Tiny is a restful URL-shortener app built with EJS, bcrypt, cookie-session, Node, Express, HTML, and SASS.
